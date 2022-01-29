@@ -1771,7 +1771,11 @@ Tcl_InitStringRep(
     const char *bytes,
     size_t numBytes)
 {
-    assert(objPtr->bytes == NULL || bytes == NULL);
+    // -bch ????
+    // (objPtr->bytes != NULL && bytes != NULL) || (numBytes == -1)
+    // was: assert(objPtr->bytes == NULL || bytes == NULL);
+    // assert (((objPtr->bytes != NULL) || (bytes != NULL)) || (-1 != numBytes) && (&tclEmptyString!=objPtr));
+    assert (((objPtr->bytes == NULL) || (bytes == NULL)) || (&tclEmptyString == objPtr->bytes));
 
     if (objPtr->bytes == NULL) {
 	/* Start with no string rep */
@@ -2491,8 +2495,8 @@ Tcl_GetIntFromObj(
     }
     if ((ULONG_MAX > UINT_MAX) && ((l > UINT_MAX) || (l < INT_MIN))) {
 	if (interp != NULL) {
-	    const char *s =
-		    "integer value too large to represent as non-long integer";
+	    const char	   *s = l > UINT_MAX ?	"integer value too large to represent as non-long integer" :
+						"integer value too small to represent as non-long integer";
 	    Tcl_SetObjResult(interp, Tcl_NewStringObj(s, -1));
 	    Tcl_SetErrorCode(interp, "ARITH", "IOVERFLOW", s, NULL);
 	}

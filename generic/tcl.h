@@ -591,11 +591,11 @@ typedef void (Tcl_MainLoopProc) (void);
 
 typedef struct Tcl_ObjType {
     const char *name;		/* Name of the type, e.g. "int". */
-    Tcl_FreeInternalRepProc *freeIntRepProc;
+    Tcl_FreeInternalRepProc *freeIntRepProc; // -bch
 				/* Called to free any storage for the type's
 				 * internal rep. NULL if the internal rep does
 				 * not need freeing. */
-    Tcl_DupInternalRepProc *dupIntRepProc;
+    Tcl_DupInternalRepProc *dupIntRepProc; // -bch
 				/* Called to create a new object as a copy of
 				 * an existing object. */
     Tcl_UpdateStringProc *updateStringProc;

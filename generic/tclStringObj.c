@@ -2551,6 +2551,7 @@ AppendPrintfToObjVA(
 		 */
 
 		end = bytes;
+                assert(NULL!=end);
 		while ((!gotPrecision || lastNum--) && (*end != '\0')) {
 		    end++;
 		}

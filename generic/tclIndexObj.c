@@ -166,11 +166,12 @@ GetIndexFromObjList(
  * Results:
  *	If the value of objPtr is identical to or a unique abbreviation for
  *	one of the entries in tablePtr, then the return value is TCL_OK and
- *	the index of the matching entry is stored at *indexPtr. If there isn't
- *	a proper match, then TCL_ERROR is returned and an error message is
- *	left in interp's result (unless interp is NULL). The msg argument is
- *	used in the error message; for example, if msg has the value "option"
- *	then the error message will say something like 'bad option "foo": must
+ *	the index of the matching entry is stored at *indexPtr
+ *	(unless indexPtr is NULL). If there isn't a proper match, then
+ *	TCL_ERROR is returned and an error message is left in interp's
+ *	result (unless interp is NULL). The msg argument is used in the
+ *	error message; for example, if msg has the value "option" then
+ *	the error message will say something like 'bad option "foo": must
  *	be ...'
  *
  * Side effects:
@@ -212,16 +213,16 @@ Tcl_GetIndexFromObjStruct(
      */
 
     if (objPtr && !(flags & TCL_INDEX_TEMP_TABLE)) {
-    irPtr = TclFetchInternalRep(objPtr, &indexType);
-    if (irPtr) {
-	indexRep = (IndexRep *)irPtr->twoPtrValue.ptr1;
-	if ((indexRep->tablePtr == tablePtr)
-		&& (indexRep->offset == offset)
-		&& (indexRep->index != TCL_INDEX_NONE)) {
-	    *indexPtr = (int)indexRep->index;
-	    return TCL_OK;
-	}
-    }
+      irPtr = TclFetchInternalRep (objPtr, &indexType);
+      if (irPtr) {
+        indexRep = (IndexRep *) irPtr->twoPtrValue.ptr1;
+        if ((indexRep->tablePtr == tablePtr)
+            && (indexRep->offset == offset)
+            && (indexRep->index != TCL_INDEX_NONE)) {
+          *indexPtr = (int)indexRep->index;
+          return TCL_OK;
+        }
+      }
     }
 
     /*
