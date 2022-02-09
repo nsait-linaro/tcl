@@ -10,4 +10,4 @@ Get-Content "$env:temp\vcvars$vcvarsarch.txt" | Foreach-Object {
 
 cd win
 
-nmake -f makefile.vc OPTS=static MACHINE=arm64 all
+nmake -f makefile.vc OPTS=static MACHINE=ARM64 all
