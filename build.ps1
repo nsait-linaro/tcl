@@ -31,4 +31,6 @@ Set-Location $PSScriptRoot
 
 Set-Location .\win
 
+cl
+
 Start-Process -NoNewWindow -Wait nmake "-f makefile.vc all"
