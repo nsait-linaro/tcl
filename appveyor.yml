@@ -12,6 +12,8 @@ build_script:
 
     cd win
 
+    cl
+
     nmake /N -f makefile.vc all
 
 test: off
