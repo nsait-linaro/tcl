@@ -1,14 +1,14 @@
 environment:
   matrix:
   - Architecture: x64
-    Compiler: vs2019
-    APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
+    Compiler: vs2017
+    APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
 
 build: off
 build_script:
 - cmd: >-
 
-    "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvarsamd64_arm64.bat"
+    "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvarsx86_arm64.bat"
 
     cd win
 
