@@ -4,8 +4,6 @@ environment:
     Compiler: vs2019
     APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
 
-install:
-- ps: install-module pscx -scope CurrentUser -AllowClobber
 build: off
 build_script:
 - ps: >-

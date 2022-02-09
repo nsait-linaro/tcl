@@ -8,4 +8,4 @@ Get-Content "$env:temp\vcvars$vcvarsarch.txt" | Foreach-Object {
     }
 }
 
-Start-Process -NoNewWindow -Wait nmake "-f win/makefile.vc OPTS=static all"
+nmake "-f win/makefile.vc OPTS=static all"
