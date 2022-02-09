@@ -7,7 +7,6 @@ Param(
     [switch]$vs2008
 )
 
-$ErrorActionPreference = "Stop"
 Import-Module Pscx
 
 $platDir = If($x64) { "\x64" } ElseIf ($arm64) { "\arm64" } Else { "" }
