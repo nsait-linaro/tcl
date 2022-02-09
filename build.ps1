@@ -1,3 +1,5 @@
+$ErrorActionPreference = "Stop"
+Import-Module Pscx
 
 $vcvarsarch = "x86_arm64"
 
