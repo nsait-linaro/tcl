@@ -1,6 +1,6 @@
 environment:
   matrix:
-  - Architecture: x64
+  - Architecture: arm64
     Compiler: vs2019
     APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
 
