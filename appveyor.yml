@@ -8,8 +8,8 @@ install:
 - ps: install-module pscx -scope CurrentUser -AllowClobber
 build: off
 build_script:
-- cmd: >-
-  C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars$vcvarsarch.bat
-  cd win
-  nmake -f makefile.vc OPTS=static MACHINE=ARM64 all
+- cmd: >-  
+    C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars$vcvarsarch.bat
+    cd win
+    nmake -f makefile.vc OPTS=static MACHINE=ARM64 all
 test: off
