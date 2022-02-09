@@ -12,6 +12,9 @@ Get-Content "$env:temp\vcvars$vcvarsarch.txt" | Foreach-Object {
 
 cd win
 
+
+Start-Process -NoNewWindow -Wait nmake "-f makefile.vc OPTS=static MACHINE=ARM64 all"
+
 Start-Process -NoNewWindow -Wait nmake "-f makefile.vc OPTS=static MACHINE=ARM64 all"
 
 New-Item -ItemType Directory .\dist
